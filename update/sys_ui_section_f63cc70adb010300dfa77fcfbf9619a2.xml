@@ -3,182 +3,196 @@
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>number</element>
             <position>0</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>588eb5c9db420300dfa77fcfbf9619b4</sys_id>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>52daf2c7131740107fcbb7a66144b0dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>sys_created_by</element>
             <position>1</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>108eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>1edaf2c7131740107fcbb7a66144b0dc</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>active</element>
+            <position>2</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>92daf2c7131740107fcbb7a66144b0dd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>allow_others_to_edit</element>
-            <position>2</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>908eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <position>3</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>1adaf2c7131740107fcbb7a66144b0dd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>color</element>
-            <position>3</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>148eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <position>4</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>9edaf2c7131740107fcbb7a66144b0dd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>title</element>
-            <position>4</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>948eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <position>5</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>16daf2c7131740107fcbb7a66144b0de</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>5</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>188eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <position>6</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>9adaf2c7131740107fcbb7a66144b0de</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>application</element>
-            <position>6</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>988eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <position>7</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>12daf2c7131740107fcbb7a66144b0df</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>type</element>
-            <position>7</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>1c8eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <position>8</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>96daf2c7131740107fcbb7a66144b0df</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>tags</element>
-            <position>8</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>9c8eb5c9db420300dfa77fcfbf9619b5</sys_id>
+            <position>9</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>1edaf2c7131740107fcbb7a66144b0df</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>snippet</element>
-            <position>9</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>108eb5c9db420300dfa77fcfbf9619b6</sys_id>
+            <position>10</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>92daf2c7131740107fcbb7a66144b0e0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>related_snippets</element>
-            <position>10</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>908eb5c9db420300dfa77fcfbf9619b6</sys_id>
+            <position>11</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>1adaf2c7131740107fcbb7a66144b0e0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>comments</element>
-            <position>11</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>148eb5c9db420300dfa77fcfbf9619b6</sys_id>
+            <position>12</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>9edaf2c7131740107fcbb7a66144b0e0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>activity.xml</element>
-            <position>12</position>
-            <sys_created_by>admin</sys_created_by>
-            <sys_created_on>2017-10-25 00:06:02</sys_created_on>
-            <sys_id>948eb5c9db420300dfa77fcfbf9619b6</sys_id>
+            <position>13</position>
+            <sys_created_by>PD0083</sys_created_by>
+            <sys_created_on>2020-03-06 21:40:39</sys_created_on>
+            <sys_id>16daf2c7131740107fcbb7a66144b0e1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter display_value="Activities (filtered)">444ea5c6bf310100e628555b3f0739d6</sys_ui_formatter>
             <sys_ui_section caption="NULL" display_value="" name="x_92893_snippetnow_table" sys_domain="global" view="Default view">f63cc70adb010300dfa77fcfbf9619a2</sys_ui_section>
-            <sys_updated_by>admin</sys_updated_by>
-            <sys_updated_on>2017-10-25 00:06:02</sys_updated_on>
+            <sys_updated_by>PD0083</sys_updated_by>
+            <sys_updated_on>2020-03-06 21:40:39</sys_updated_on>
             <sys_user/>
             <type>formatter</type>
         </sys_ui_element>
@@ -190,15 +204,16 @@
             <sys_class_name>sys_ui_section</sys_class_name>
             <sys_created_by>admin</sys_created_by>
             <sys_created_on>2017-09-08 15:16:47</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
-            <sys_domain_path>/</sys_domain_path>
             <sys_id>f63cc70adb010300dfa77fcfbf9619a2</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_92893_snippetnow_table</sys_name>
             <sys_overrides/>
-            <sys_package display_value="SnippetNow" source="x_92893_snippetnow">86490346db010300dfa77fcfbf9619c2</sys_package>
+            <sys_package display_value="Snippet Repo" source="x_92893_snippetnow">86490346db010300dfa77fcfbf9619c2</sys_package>
             <sys_policy/>
-            <sys_scope display_value="SnippetNow">86490346db010300dfa77fcfbf9619c2</sys_scope>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Snippet Repo">86490346db010300dfa77fcfbf9619c2</sys_scope>
             <sys_update_name>sys_ui_section_f63cc70adb010300dfa77fcfbf9619a2</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2017-09-08 15:16:47</sys_updated_on>

@@ -167,56 +167,62 @@
 	*/
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>.panel-default &gt; .panel-heading {&#13;
-  background-color: #e7e9eb;&#13;
-  border-color: #ccc;&#13;
-}&#13;
-.row {&#13;
-  margin: 10px 0;&#13;
-}&#13;
-.badge {&#13;
-  background-color: darken(#e7e9eb,30%);&#13;
-}&#13;
-.badge-primary {&#13;
-  background-color: $brand-primary;&#13;
-}&#13;
-.fa-pencil, .fa-plus-circle {&#13;
-  visibility: hidden;&#13;
-}&#13;
-.type-item-header {&#13;
-  border-bottom-left-radius: 4px;&#13;
-  border-bottom-right-radius: 4px;&#13;
-}&#13;
-.list-group-item:hover {&#13;
-  .fa-pencil {&#13;
-    visibility: visible;&#13;
-  }&#13;
-  .fa-plus-circle {&#13;
-    visibility: visible;&#13;
-  }&#13;
-}&#13;
-.panel {&#13;
-  background-color: transparent !important;&#13;
-  border: none;&#13;
-  -webkit-box-shadow: none;&#13;
-  box-shadow: none;&#13;
-}&#13;
-.app-items {&#13;
-  border-radius: 0px;&#13;
-}&#13;
-.app-items:last-child {&#13;
-  border-bottom: none !important;&#13;
-}&#13;
-.type-items:first-child {&#13;
-  border-radius: 0px;&#13;
-}&#13;
-.badge-info {&#13;
-  border-radius: 4px;&#13;
-  margin: 0 2px;&#13;
-  background-color: $brand-info;&#13;
-}&#13;
-.show-circle {&#13;
-  visibility: visible;&#13;
+        <css>.panel-default &gt; .panel-heading {
+  background-color: #e7e9eb;
+  border-color: #ccc;
+}
+.row {
+  margin: 10px 0;
+}
+.badge {
+  background-color: darken(#e7e9eb,30%);
+}
+.badge-primary {
+  background-color: $brand-primary;
+}
+.fa-pencil, .fa-plus-circle {
+  visibility: hidden;
+}
+.type-item-header {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  font-weight: bold;
+}
+
+.list-group-item:hover {
+  .fa-pencil {
+    visibility: visible;
+  }
+  .fa-plus-circle {
+    visibility: visible;
+  }
+}
+.panel {
+  background-color: transparent !important;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.app-items {
+  border-radius: 0px;
+}
+.app-items:last-child {
+  border-bottom: none !important;
+}
+.type-items:first-child {
+  border-radius: 0px;
+}
+.badge-info {
+  border-radius: 4px;
+  margin: 0 2px;
+  background-color: $brand-info;
+}
+.show-circle {
+  visibility: visible;
+}
+.refresh {
+  color: $brand-danger;
+  font-size: 20px;
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -269,75 +275,82 @@
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-11-22 05:28:57</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>43d4d706db220300dfa77fcfbf9619ef</sys_id>
-        <sys_mod_count>261</sys_mod_count>
+        <sys_mod_count>276</sys_mod_count>
         <sys_name>SnippetNow Controls</sys_name>
-        <sys_package display_value="SnippetNow" source="x_92893_snippetnow">86490346db010300dfa77fcfbf9619c2</sys_package>
+        <sys_package display_value="Snippet Repo" source="x_92893_snippetnow">86490346db010300dfa77fcfbf9619c2</sys_package>
         <sys_policy/>
-        <sys_scope display_value="SnippetNow">86490346db010300dfa77fcfbf9619c2</sys_scope>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Snippet Repo">86490346db010300dfa77fcfbf9619c2</sys_scope>
         <sys_update_name>sp_widget_43d4d706db220300dfa77fcfbf9619ef</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-04-26 19:30:36</sys_updated_on>
+        <sys_updated_by>PD0083</sys_updated_by>
+        <sys_updated_on>2020-03-06 21:35:38</sys_updated_on>
         <template><![CDATA[<div class="" ng-if="c.data.hasRole">
   <!-- your widget template -->
-  
+
   <div class="row">
     <button class="btn btn-success" ng-click="createNew()">
-    Create New <i class="fa fa-plus-circle show-circle" aria-hidden="true"></i>
-    </button>
-    <button class="btn btn-danger" ng-click="searchRecords(null)">
-    Show All <i class="fa fa-times-circle" aria-hidden="true"></i>
+      Create New
     </button>
     <button class="btn btn-info" ng-click="showNewsAndSuggestions('news_updates')">
-    Information
+      Information
     </button>
+
+    <div class="refresh pull-right" ng-click="searchRecords(null)">
+      <i class="fa fa-refresh" aria-hidden="true"></i>
+    </div>
+    
   </div>
   <div class="row">
     <div id="menu">
       <div class="panel list-group">
-        <a href="javascript:void(0)" class="list-group-item" data-toggle="collapse" data-target="#apps" data-parent="#menu">APPLICATIONS <i class="fa fa-plus-circle" aria-hidden="true" ng-click="actionAppType('add','application');$event.stopPropagation();"></i><span class="badge badge-primary pull-right">{{c.data.applications.length}}</span></a>
+        <a href="javascript:void(0)" class="list-group-item type-item-header" data-toggle="collapse" data-target="#apps" data-parent="#menu">APPLICATIONS <i class="fa fa-plus-circle" aria-hidden="true" ng-click="actionAppType('add','application');$event.stopPropagation();"></i><span class="badge badge-primary pull-right">{{c.data.applications.length}}</span></a>
         <div id="apps" class="sublinks collapse">
           <a ng-click="searchRecords(app.name); $event.stopPropagation();" class="list-group-item app-items small" ng-repeat="app in c.data.applications"><i class="fa fa-circle" style="color:{{app.color}}"></i> {{app.name}} <i ng-id="$index-app-edit" class="fa fa-pencil" ng-click="actionAppType('edit','application',app); $event.stopPropagation();"></i><span class="badge badge-default pull-right">{{app.count}}</span></a>
-          
+
         </div>
         <a href="javascript:void(0)" class="list-group-item type-item-header" data-toggle="collapse" data-target="#types" data-parent="#menu">TYPES <i class="fa fa-plus-circle" aria-hidden="true" ng-click="actionAppType('add','type');$event.stopPropagation();"></i> <span class="badge badge-primary pull-right">{{c.data.types.length}}</span></a>
         <div id="types" class="sublinks collapse">
           <a ng-click="searchRecords(type.name); $event.stopPropagation();" class="list-group-item type-items small" ng-repeat="type in c.data.types"><i class="fa fa-circle" style="color:{{type.color}}"></i> {{type.name}} <i ng-id="$index-app-edit" class="fa fa-pencil" ng-click="actionAppType('edit','type',type); $event.stopPropagation();"></i><span class="badge pull-right">{{type.count}}</span></a>
         </div>
-        
+
       </div>
     </div>
     <div class="row">
+      <div>
+        Tags
+      </div>
       <span class="badge badge-info" ng-repeat="tag in c.data.tags" ng-click="searchRecords(tag.text)">{{tag.text}}</span>
     </div>
     <!--<div class="panel-group" id="accordion">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#applications">Applications <span class="badge badge-primary pull-right">{{c.data.applications.length}}</span></a>
-          </h4>
-        </div>
-        <div id="applications" class="panel-collapse collapse">
-          <ul class="list-group">
-            <li class="list-group-item" ng-repeat="app in c.data.applications"><i class="fa fa-circle" style="color:{{app.color}}"></i> {{app.name}} <i ng-id="$index-app-edit" class="fa fa-pencil" ng-click="editThis(app,'app'); $event.stopPropagation();"></i> <span class="badge badge-default pull-right">{{app.count}}</span></li>
-          </ul>
-        </div>
-      </div>
-      </div>
-      <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#types">Types <span class="badge badge-primary pull-right">{{c.data.types.length}}</span></a>
-        </h4>
-      </div>
-      <div id="types" class="panel-collapse collapse">
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="type in c.data.types"><i class="fa fa-circle" style="color:{{type.color}}"></i> {{type.name}} <i ng-id="$index-type-edit" class="fa fa-pencil" ng-click="editThis(type,'type'); $event.stopPropagation();"></i> <span class="badge pull-right">{{type.count}}</span></li>
-        </ul>
-      </div>
-    </div>-->
-    
-    
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#accordion" href="#applications">Applications <span class="badge badge-primary pull-right">{{c.data.applications.length}}</span></a>
+</h4>
+</div>
+<div id="applications" class="panel-collapse collapse">
+<ul class="list-group">
+<li class="list-group-item" ng-repeat="app in c.data.applications"><i class="fa fa-circle" style="color:{{app.color}}"></i> {{app.name}} <i ng-id="$index-app-edit" class="fa fa-pencil" ng-click="editThis(app,'app'); $event.stopPropagation();"></i> <span class="badge badge-default pull-right">{{app.count}}</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#accordion" href="#types">Types <span class="badge badge-primary pull-right">{{c.data.types.length}}</span></a>
+</h4>
+</div>
+<div id="types" class="panel-collapse collapse">
+<ul class="list-group">
+<li class="list-group-item" ng-repeat="type in c.data.types"><i class="fa fa-circle" style="color:{{type.color}}"></i> {{type.name}} <i ng-id="$index-type-edit" class="fa fa-pencil" ng-click="editThis(type,'type'); $event.stopPropagation();"></i> <span class="badge pull-right">{{type.count}}</span></li>
+</ul>
+</div>
+</div>-->
+
+
   </div>
   <script type="text/ng-template" id="showHelpControls">
   <div class="panel panel-info">
@@ -346,34 +359,34 @@
       <i class="fa fa-times fa-2x pull-right" aria-hidden="true" ng-click="c.closeModal()"></i>
     </div>
     <div class="panel panel-body">
-      
+
         <div ng-if="modalData.topic != 'news_updates'" ng-bind-html="modalData.body"></div>
-        
-      
+
+
       <div style="padding:25px" ng-if="modalData.topic == 'news_updates'">
         <div class="news-overflow">
           <div ng-bind-html="modalData.body"></div>
-        </div>
+    </div>
         <hr>
           <div class="form-group">
             <label>Suggestion?</label>
             <textarea ng-model="modalData.suggestion" class="form-control"></textarea>
-          </div>
-        </div>
+    </div>
+    </div>
     </div>
     <div class="panel panel-footer clearfix">
       <div class="pull-right" ng-if="modalData.topic == 'news_updates'">
         <span ng-if="saving.spinner">
           <i class="fa fa-spinner fa-pulse fa-fw"></i>
-        </span>
+    </span>
         <span ng-if="saving.showSaved">{{saving.saved}}</span>
         <span ng-if="saving.showError">{{saving.error}}</span>
         <button class="btn btn-danger" ng-click="closeModal()">Cancel</button>
         <button class="btn btn-success saveSubmit" ng-if="modalData.suggestion" ng-disabled="submitDisabled" ng-click="saveSuggestion(modalData)">Submit</button>
-      </div>
     </div>
-  </div>
-  </div>
+    </div>
+    </div>
+    </div>
   </script>
 
   <script type="text/ng-template" id="actionAppType">
@@ -385,26 +398,26 @@
         <div class="form-group">
           <label for="newTitle">Title</label>
           <input type="text" ng-model="modalData.name" class="form-control">
-        </div>
+    </div>
         <div ng-if="modalData.typeValue == 'type'" class="form-group">
           <label>Language</label>
           <sn-record-picker field="modalData.language" table="'x_92893_snippetnow_snippetnow_editor_mode'" display-field="'mode_name'" value-field="'sys_id'" search-fields="'mode_name'" page-size="100" ></sn-record-picker>
-        </div>
+    </div>
         <label>Color</label>
         <div class="input-group">
-          
+
           <input colorpicker ng-model="modalData.color" class="form-control"/>
           <span class="input-group-addon" colorpicker ng-model="modalData.color" id="basic-addon2"><i class="fa fa-square" aria-hidden="true" style="color:{{modalData.types.color}}"></i></span>
-        </div>
+    </div>
         <div class="pull-right" style="padding-top: 10px">
           <span ng-if="modalData.response == 'success'"><i class="fa fa-check text-success" aria-hidden="true"></i> <span class="text-success">Successful</span></span>
           <button class="btn btn-danger" ng-click="c.closeModal()">Cancel</button>
           <button ng-if="!modalData.sys_id" class="btn btn-success" ng-click="insertAppType(modalData,'add')">Insert</button>
           <button ng-if="modalData.sys_id" class="btn btn-success" ng-click="insertAppType(modalData,'update')">Update</button>
-        </div>
-      </form>
     </div>
-  </div>
+    </form>
+    </div>
+    </div>
   </script>]]></template>
     </sp_widget>
 </record_update>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" label="SnippetNow Table" max_length="40" name="x_92893_snippetnow_table" type="collection">
+    <element audit="true" label="Snippets" max_length="40" name="x_92893_snippetnow_table" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Allow others to edit" max_length="40" name="allow_others_to_edit" type="boolean"/>
         <element label="Application" max_length="32" name="application" reference="x_92893_snippetnow_snippetnow_applications" type="reference"/>
         <element label="Color" max_length="40" name="color" type="color"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="SnippetNow Types" max_length="40" name="x_92893_snippetnow_snippet_type" type="collection">
+    <element label="Snippet Types" max_length="40" name="x_92893_snippetnow_snippet_type" type="collection">
         <element label="Active" max_length="40" name="active" type="boolean"/>
         <element default="#6BA28C" label="Color" max_length="40" name="color" type="color"/>
         <element label="Language" max_length="32" name="language" reference="x_92893_snippetnow_snippetnow_editor_mode" type="reference"/>

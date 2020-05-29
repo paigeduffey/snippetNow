@@ -323,26 +323,7 @@
         $scope.comments = {};
         $scope.comments.show = false;
         $scope.showCommentBox = false;
-        //$scope.snippet = data;
-        //console.log($scope.youCanEdit);
-        /*if (!$scope.canYouEdit()) {
-        	editor.setReadOnly(false);
-        } else {
-        	editor.setReadOnly(true);
-        }*/
-        /*if (!$scope.snippet.allow_others_to_edit) {
-        	console.log("no edit");
-        	editor.setReadOnly(true);
-        	$scope.youCanEdit = false;
-        } else {
-        	console.log("edit");
-        	editor.setReadOnly(false);
-        	$scope.youCanEdit = true;
-        }
-        if (c.data.current_user == data.snippet.created_by.sys_id) {
-        	editor.setReadOnly(false);
-        	$scope.youCanEdit = true;
-        }*/
+
         if ($scope.snippet.snippet) {
             editor.setValue($scope.snippet.snippet);
             editor.clearSelection();
@@ -389,14 +370,7 @@
         $scope.snippetSetOptions = $scope.snippetSetOptions.filter(function(el) {
             return el.id !== $scope.snippet.sys_id;
         });
-        /*var related_id = $scope.snippetSetOptions.indexOf($scope.snippet.sys_id);
-        console.log(related_id);
-        if (related_id > -1) {
-        		$scope.snippetSetOptions.splice(related_id, 1);
-        }*/
-        //console.log(editor);
 
-        //console.log("IntialSNippet",$rootScope.initialSnippet);
         $rootScope.initialSnippet = null;
     }
     $scope.$on("selectedSnippet", function(event, data) {
@@ -417,19 +391,7 @@
                 } else {
                     editor.setReadOnly(true);
                 }
-                /*if (!$scope.snippet.allow_others_to_edit) {
-                	console.log("no edit");
-                	editor.setReadOnly(true);
-                	$scope.youCanEdit = false;
-                } else {
-                	console.log("edit");
-                	editor.setReadOnly(false);
-                	$scope.youCanEdit = true;
-                }
-                if (c.data.current_user == data.snippet.created_by.sys_id) {
-                	editor.setReadOnly(false);
-                	$scope.youCanEdit = true;
-                }*/
+
                 if ($scope.snippet.snippet) {
                     editor.setValue($scope.snippet.snippet);
                     editor.clearSelection();
@@ -570,6 +532,8 @@
         arr = arr.join(",");
         return arr;
     }
+	
+
 
     $scope.submit = function(type) {
         //console.log("Snippet", $scope.snippet);
@@ -955,6 +919,10 @@
   color: #fff;
   
 }
+.attachments {
+  font-size: 30px;
+  padding-bottom: 30px; 
+}
 
 .you-bubble::before {
     background-color: $success;
@@ -1009,6 +977,9 @@
     margin-right: 5px;
 }
 
+label {
+  font-weight: bold;
+}
 </css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -1024,13 +995,8 @@
         <public>false</public>
         <roles/>
         <script><![CDATA[(function() {
-  /* populate the 'data' object */
-  /* e.g., data.table = $sp.getValue('table'); */
-	//console.log("Parameters");
-	//console.log($sp.getParameter("sys_id"));
+
   	if (input && input.snippet) {
-		//console.log("Keeps Running");
-		//console.log(input.snippet.sys_id);
 		var done = actionSnippet(input.snippet);
 		var sys_id;
 		if (input.snippet.sys_id) {
@@ -1180,6 +1146,7 @@
 			rec.application = snippet.application.value;
 			rec.allow_others_to_edit = snippet.allow_others_to_edit;
 			rec.related_snippets = snippet.related_snippets;
+			rec.active = true;
 			rec.tags = t;
 			action = rec.insert();
 		}
@@ -1211,165 +1178,170 @@
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-11-24 20:16:40</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>a243f4c3dbea4300dfa77fcfbf96197c</sys_id>
-        <sys_mod_count>462</sys_mod_count>
+        <sys_mod_count>504</sys_mod_count>
         <sys_name>SnippetNow Editor</sys_name>
-        <sys_package display_value="SnippetNow" source="x_92893_snippetnow">86490346db010300dfa77fcfbf9619c2</sys_package>
+        <sys_package display_value="Snippet Repo" source="x_92893_snippetnow">86490346db010300dfa77fcfbf9619c2</sys_package>
         <sys_policy/>
-        <sys_scope display_value="SnippetNow">86490346db010300dfa77fcfbf9619c2</sys_scope>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Snippet Repo">86490346db010300dfa77fcfbf9619c2</sys_scope>
         <sys_update_name>sp_widget_a243f4c3dbea4300dfa77fcfbf96197c</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2019-04-26 19:22:11</sys_updated_on>
+        <sys_updated_by>PD0083</sys_updated_by>
+        <sys_updated_on>2020-03-09 13:42:57</sys_updated_on>
         <template><![CDATA[<div ng-show="data.hasRole">
-<!-- your widget template -->
-  <!--<div class="panel panel-primary">-->
-    <!--<div class="panel-heading">New Snippet</div>-->
-    <!--<div class="panel-body">-->
-  	
-      <h3>
-        Snippet <button class="btn btn-primary pull-right" ng-click="addAttachment(snippet.sys_id)" ng-if="snippet.sys_id && !canYouEdit()">Attachments <i class="fa fa-paperclip" aria-hidden="true"></i></button>
-      </h3>
-      
-    	<!--<div class="clearfix">
-      	<div class="pull-left">
-          <span class="attachment-pills label" ng-repeat="attachment in snippet.attachments.records">{{attachment.file_name}}</span>
-        </div> 
-  		</div>-->
-      <form>
+
+<h3> Snippet
+    <div class="attachments pull-right" ng-click="addAttachment(snippet.sys_id)" ng-if="snippet.sys_id && !canYouEdit()"><i class="fa fa-paperclip" aria-hidden="true"></i></div>
+</h3>
+
+  <form>
+
+    <div class="form-group">
+      <label for="snippetTitle">Title</label>
+      <input type="text" ng-model="snippet.title" class="form-control" ng-readonly="!youCanEdit" id="snippetTitle" placeholder="Snippet Title">
+      <input type="hidden" ng-model="snippet.sys_id">
+    </div><!-- Form Group -->
+
+    <!-- Need some types, and stuff here -->
+    <div class="row">
+      <div class="col-lg-6">
         <div class="form-group">
-          <label for="snippetTitle">Title</label>
-          <div class="small pull-right" >Allow others to edit <input type="checkbox" ng-disabled="canYouEdit()" ng-model="snippet.allow_others_to_edit" ng-change="canEdit(snippet.allow_others_to_edit)" ng-true-value="true" ng-false-value="false"/> <i class="fa fa-info-circle" aria-hidden="true" ng-click="iNeedHelp('allow_others_to_edit')"></i></div>
-          <input type="text" ng-model="snippet.title" class="form-control" ng-readonly="!youCanEdit" id="snippetTitle" placeholder="Snippet Title">
-          <input type="hidden" ng-model="snippet.sys_id">
-        </div>  
-        <!-- Need some types, and stuff here -->
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label for="snippetApp">Snippet Application <i class="fa fa-info-circle" aria-hidden="true" ng-click="iNeedHelp('snippet_application')"></i></label>
-              <div >
-                <sn-record-picker sn-disabled="!youCanEdit" default-query="'active=true'" field="snippetApp" table="'x_92893_snippetnow_snippetnow_applications'" display-field="'name'" value-field="'sys_id'" search-fields="'name'" page-size="100" ></sn-record-picker>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label for="snippetType">Snippet Type <i class="fa fa-info-circle" aria-hidden="true" ng-click="iNeedHelp('snippet_type')"></i></label>
-              <div >
-                <sn-record-picker sn-disabled="!youCanEdit"  default-query="'active=true'" field="snippetType" table="'x_92893_snippetnow_snippet_type'" display-field="'name'" value-field="'sys_id'" search-fields="'name'" page-size="100" ></sn-record-picker>
-              </div>
-            </div>
-          </div>
-        </div>
-				<div class="form-group">
+          <label for="snippetApp">Application <i class="fa fa-info-circle" aria-hidden="true" ng-click="iNeedHelp('snippet_application')"></i></label>
+          <div>
+            <sn-record-picker sn-disabled="!youCanEdit" default-query="'active=true'" field="snippetApp" table="'x_92893_snippetnow_snippetnow_applications'" display-field="'name'" value-field="'sys_id'" search-fields="'name'" page-size="100" ></sn-record-picker>
+          </div><!-- -->
+        </div><!-- Form Group -->
+      </div><!-- Column -->
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="snippetType">Type <i class="fa fa-info-circle" aria-hidden="true" ng-click="iNeedHelp('snippet_type')"></i></label>
+          <div>
+            <sn-record-picker sn-disabled="!youCanEdit"  default-query="'active=true'" field="snippetType" table="'x_92893_snippetnow_snippet_type'" display-field="'name'" value-field="'sys_id'" search-fields="'name'" page-size="100" ></sn-record-picker>
+          </div><!-- -->
+        </div><!-- Form Group -->
+      </div><!-- Column -->
+    </div><!-- Row -->
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="form-group">
+          <label for="snippetEditorMode">Language</label>
+          <div ng-show="snippetType.value" class="padding-top-6">[{{snippetEditorMode.value.replace('_', ' ')}}]</div>
+          <div ng-show="!snippetType.value"><sn-record-picker sn-disabled="!youCanEdit" default-query="" field="snippetEditorMode" table="'x_92893_snippetnow_snippetnow_editor_mode'" display-field="'mode_name'" value-field="'mode_value'" search-fields="'mode_name'" page-size="100" ></sn-record-picker></div>
+        </div><!-- Form Group -->
+      </div><!-- Column -->
+      <div class="col-lg-6">
+        <div class="form-group">
+          <div class="checkbox"><input type="checkbox" ng-disabled="canYouEdit()" ng-model="snippet.allow_others_to_edit" ng-change="canEdit(snippet.allow_others_to_edit)" ng-true-value="true" ng-false-value="false"/> Allow others to edit  <i class="fa fa-info-circle" aria-hidden="true" ng-click="iNeedHelp('allow_others_to_edit')"></i></div>
+        </div><!-- Column -->
+      </div> <!-- Form Group -->
+    </div> <!-- Row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group">
           <label for="snippetDescription">Description</label>
           <textarea class="form-control" ng-model="snippet.description" ng-readonly="!youCanEdit"></textarea>
-        </div>
+        </div><!-- Form Group -->
+      </div><!-- Column -->
+    </div><!-- Row -->
 
 
-      <div class="row">
-        <div class="col-lg-6">
-         <div class="form-group">
-           <label for="tagBUttons">Tags</label>
-           <div ng-if="youCanEdit">
-           	<tags-input ng-model="snippet.tags" add-on-paste="true" ng-disable="!youCanEdit" ng-readonly="!youCanEdit">
-              <auto-complete source="loadTags($query)"></auto-complete>
-            </tags-input>  
-           </div>
-           <div ng-if="!youCanEdit">
-             <button ng-repeat="tag in snippet.tags" class="btn btn-default" ng-disabled="!youCanEdit">
-               {{tag.text}}
-             </button>
-           </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="form-group" >
-         
-
-           <label for="snippetRelated">Related Snippets</label>
-           <div class="related-snip-list">
-             <button ng-repeat="rSnip in snippetSetModel" class="btn btn-default" ng-click="gotoSnippet(rSnip.id)"> {{rSnip.label}} </button>
-           </div>
-           <div ng-dropdown-multiselect="" options="snippetSetOptions" selected-model="snippetSetModel" extra-settings="snippetExtraSettings" disabled="!youCanEdit"></div>
-           <!--<div ng-dropdown-multiselect="" options="example1data" selected-model="example1model" extra-settings="exampleExtraSettings"></div>-->
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="tagBUttons">Tags</label>
+        <div ng-if="youCanEdit">
+          <tags-input ng-model="snippet.tags" add-on-paste="true" ng-disable="!youCanEdit" ng-readonly="!youCanEdit">
+            <auto-complete source="loadTags($query)"></auto-complete>
+          </tags-input>
+          <div ng-if="!youCanEdit">
+            <button ng-repeat="tag in snippet.tags" class="btn btn-default" ng-disabled="!youCanEdit">
+              {{tag.text}}
+            </button>
           </div>
         </div>
       </div>
+
+      <div class="col-lg-6">
+        <div class="form-group" >
+          <label for="snippetRelated">Related Snippets</label>
+          <div class="related-snip-list">
+            <button ng-repeat="rSnip in snippetSetModel" class="btn btn-default" ng-click="gotoSnippet(rSnip.id)"> {{rSnip.label}} </button>
+          </div><!-- Related List -->
+          <div ng-dropdown-multiselect="" options="snippetSetOptions" selected-model="snippetSetModel" extra-settings="snippetExtraSettings" disabled="!youCanEdit"></div>
+        </div>
+      </div>
+
       <div class="form-group editor-group" ng-class="editorHeight()">
-         <label for="snippetHTML">Snippet </label>
-          <div class="small pull-right" ng-if="snippet.sys_id">Show comments <input type="checkbox" ng-model="comments.show" ng-change="showComments(comments.show)" ng-true-value="true" ng-false-value="false"/></div>
-          <div class="padding-top-10" id="snippetHTML" id="editor" ng-model="snippet.editor" class="form-control"></div>
-          <!--<div class="pull-right"><span class="small muted">[mode: {{snippetEditorMode.value.replace('_', ' ')}}]</span></div>-->
-          <div class="col-lg-4 padding-top-10">
-            <div class="pull-left padding-top-6 padding-right-10">Editor Mode: </div>
-            <div ng-show="snippetType.value" class="padding-top-6">[{{snippetEditorMode.value.replace('_', ' ')}}]</div>
-          <div ng-show="!snippetType.value"><sn-record-picker sn-disabled="!youCanEdit" default-query="" field="snippetEditorMode" table="'x_92893_snippetnow_snippetnow_editor_mode'" display-field="'mode_name'" value-field="'mode_value'" search-fields="'mode_name'" page-size="100" ></sn-record-picker></div>
-        </div>
-       </div>
-       <div class="form-group clearfix" style="margin-bottom: 40px;">
-          <div class="pull-right">
-            <button ng-if="!snippet.sys_id && !canYouEdit()" class="btn btn-danger" ng-click="cancelAdd()">Cancel</button>
-            <button ng-if="!snippet.sys_id && !canYouEdit()" type="submit" class="btn btn-primary" ng-click="submit('insert')">Submit</button>
-            <button ng-if="snippet.sys_id && !canYouEdit() || snippet.add_comments" type="submit" class="btn btn-success" ng-click="submit('update')">Update</button>
-          </div>
+        <label for="snippetHTML">Snippet </label>
+        <div class="padding-top-10" id="snippetHTML" id="editor" ng-model="snippet.editor" class="form-control"></div>
+        <!--<div class="pull-right"><span class="small muted">[mode: {{snippetEditorMode.value.replace('_', ' ')}}]</span></div>-->
       </div>
-       
-         <div ng-if="showCommentBox" class="form-group">
-        	<label for="snippetComments">Add Comment</label>
-          <textarea ng-model="snippet.add_comments" class="form-control"></textarea>
-          
-          <div class="comment-area">
-            <label form="snippetPreviousComments">Previous Comments</label>
-            <div class="chat clearfix">
-              <div ng-repeat="comment in snippet.previous_comments">
-                
-                <!--<div ng-class="chatContainer(comment.created_by.sys_id,snippet.created_by.sys_id)">-->
-                  <div ng-class="chatCSS(comment.created_by.sys_id,snippet.created_by.sys_id,'container')">
-                  
-                    <div ng-if="chatCSS(comment.created_by.sys_id,snippet.created_by.sys_id,'avatar-left')" class="left-avatar chat-avatar pull-left"><span class="avatar-circle" uib-tooltip="{{comment.created_by.name}}"><sn-avatar class="avatar-small-medium" primary="comment.created_by.sys_id" /></span></div>
+      <div class="form-group clearfix" style="margin-bottom: 40px;">
+        <div class="pull-right">
+          <button ng-if="!snippet.sys_id && !canYouEdit()" class="btn btn-danger" ng-click="cancelAdd()">Cancel</button>
+          <button ng-if="!snippet.sys_id && !canYouEdit()" type="submit" class="btn btn-primary" ng-click="submit('insert')">Submit</button>
+          <!--<button ng-if="snippet.sys_id && !canYouEdit()" type="delete" class="btn btn-danger" ng-click="delete()">Deactivate</button>-->
+          <button ng-if="snippet.sys_id && !canYouEdit() || snippet.add_comments" type="submit" class="btn btn-success" ng-click="submit('update')">Update</button>
+        </div>
+      </div>
 
-                    <div ng-if="chatCSS(comment.created_by.sys_id,snippet.created_by.sys_id,'avatar-right')" class="right-avatar chat-avatar pull-right"><span class="avatar-circle" uib-tooltip="{{comment.created_by.name}}"><sn-avatar class="avatar-small-medium" primary="comment.created_by.sys_id" /></span></div>
+      <div class="form-group">
+        <label for="snippetComments">Add Comment</label>
+        <textarea ng-model="snippet.add_comments" class="form-control"></textarea>
+
+        <div class="comment-area">
+          <h3>Comments</h3>
+          <div class="chat clearfix">
+            <div ng-repeat="comment in snippet.previous_comments">
+
+              <!--<div ng-class="chatContainer(comment.created_by.sys_id,snippet.created_by.sys_id)">-->
+              <div ng-class="chatCSS(comment.created_by.sys_id,snippet.created_by.sys_id,'container')">
+
+                <div ng-if="chatCSS(comment.created_by.sys_id,snippet.created_by.sys_id,'avatar-left')" class="left-avatar chat-avatar pull-left"><span class="avatar-circle" uib-tooltip="{{comment.created_by.name}}"><sn-avatar class="avatar-small-medium" primary="comment.created_by.sys_id" /></span></div>
+
+                <div ng-if="chatCSS(comment.created_by.sys_id,snippet.created_by.sys_id,'avatar-right')" class="right-avatar chat-avatar pull-right"><span class="avatar-circle" uib-tooltip="{{comment.created_by.name}}"><sn-avatar class="avatar-small-medium" primary="comment.created_by.sys_id" /></span></div>
 
 
-                    <div class="" ng-class="whoSaidIt(comment.created_by.sys_id,snippet.created_by.sys_id)">
-                      <span class="">{{comment.comment}}</span>
-                    </div>
-                  
-                  
+                <div class="" ng-class="whoSaidIt(comment.created_by.sys_id,snippet.created_by.sys_id)">
+                  <span class="">{{comment.comment}}</span>
                 </div>
+
+
               </div>
             </div>
           </div>
         </div>
-       
-        
+      </div>
+
+
       </form>
-      
+
     <!--</div>-->
-  <!--</div>-->
-</div>
-<script type="text/ng-template" id="showHelp">
+    <!--</div>-->
+    </div>
+  <script type="text/ng-template" id="showHelp">
 	<div class="panel panel-info">
   	<div class="panel panel-heading">
     	SnippetNOW Help - {{modalData.title}}
       <i class="fa fa-times fa-2x pull-right" aria-hidden="true" ng-click="closeModal()"></i>
-   </div>
+    </div>
    <div class="panel panel-body">
    	<div ng-bind-html="modalData.body"></div>
-   </div>
-  </div>
+    </div>
+    </div>
 
-</script>
-<script type="text/ng-template" id="updatedSnippet">
+  </script>
+  <script type="text/ng-template" id="updatedSnippet">
 	<div ng-show="c.data.recordAction" class="alert alert-success" style="margin-bottom:0px">
     <strong>Success!</strong> Snippet has been updated!.
-  </div>
+    </div>
   <div ng-show="c.data.recordAction == false" class="alert alert-danger" style="margin-bottom:0px">
     <strong>Error!</strong> Snippet did not save, please try again.
-  </div>
-</script>
-<script type="text/ng-template" id="loadNewSnippetConfirm">
+    </div>
+  </script>
+  <script type="text/ng-template" id="loadNewSnippetConfirm">
 	<div class="panel panel-info">
   	<div class="panel panel-heading">
     	Confirm
@@ -1378,20 +1350,20 @@
     	<p>This will load a new Snippet, if you have unsaved work on the current Snippet, please click "Cancel" and save your work, then try this action again. Otherwise click "Ok" and the new Snippet will be loaded.</p>
       <div class="pull-right">
       	<button class="btn btn-success" ng-click="loadNewSnippet(modalData)">OK - Load Snippet</button> <button class="btn btn-danger" ng-click="closeModal()">Cancel</button>
-     </div>
     </div>
-  </div>
-</script>
-<script type="text/ng-template" id="addAttachment">
+    </div>
+    </div>
+  </script>
+  <script type="text/ng-template" id="addAttachment">
 	<div class="panel panel-default">
   	<div class="panel-heading">
     	<h4>Add Attachments <span class="pull-right"><i class="fa fa-times" aria-hidden="true" ng-click="closeModal()"></i></span></h4>
     </div>
     <div class="panel-body">
     	<sp-widget widget="c.attachmentItemWidget"></sp-widget>
-   	</div>
- </div>
- 
-</script>]]></template>
+    </div>
+    </div>
+
+  </script>]]></template>
     </sp_widget>
 </record_update>
